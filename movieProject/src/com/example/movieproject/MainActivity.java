@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
 		final EditText feedbackField = (EditText) findViewById(R.id.zipcode);  
 		String zipcode = feedbackField.getText().toString(); 
 		final EditText Date = (EditText) findViewById(R.id.da);
-		String date = Date.getText().toString();
+		String date = Date.getText().toString();                          
 		String newDate = date.charAt(0) + date.charAt(1) + "-" + date.charAt(3) + date.charAt(4);
 		String url = "http://data.tmsapi.com/v1/movies/showings?startDate=" + newDate + "&zip=" + zipcode + "&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
 		//String url =  "http://data.tmsapi.com/v1/movies/showings?startDate=2014-01-20&zip=" + zipcode + "&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
