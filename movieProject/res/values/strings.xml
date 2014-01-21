@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">movieProject</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="textfield1">please enter your preferred genre here</string>
+    <string name="submit">submit</string>
+    <string name="textfield2">please enter your preferred movie rating here</string>
+    <string name="textfield3">please enter your zip code here</string>
+    <string name="date">enter your date here</string>
+    <string name="rating">please enter your rating here</string>
+    <string name="genre">please enter your genre here</string>
+    <string name="zipcode">please enter your zipcode here</string>
+    <string name="dates">please enter your date here</string>
+    <string name="fulldates">please enter your date here (YYYY-DD-MM)</string>
+    <string name="fuldate">please enter your date here (YYYY-MM-DD)</string>
+    <string name="da">mm/dd</string>
+
+</resources>
