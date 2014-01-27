@@ -5,7 +5,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
+
 import com.example.movieproject.*;
 
 import java.io.*;
@@ -22,8 +25,16 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		// Get the button and set listener
+		findViewById(R.id.ButtonSendFeedback).setOnClickListener(Feedback);
 	}
+	
+	final OnClickListener Feedback = new OnClickListener(){
+		public void onClick(final View v) {
+        	//Inform the user the button has been clicked
+        	sendFeedback(v);               
+    	}
+	};
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -31,9 +42,12 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	//public void sendMessage(View view)
-	public void sendFeedback(View button)
+	
+	public void sendFeedback(View ButtonSendFeedback)
 	{
+		
+		System.out.println("Blah");
+		//ButtonSendFeedback.performClick();
 		final EditText nameField = (EditText) findViewById(R.id.genre);  
 		String genre = nameField.getText().toString();  
 		
@@ -44,9 +58,9 @@ public class MainActivity extends Activity {
 		String zipcode = feedbackField.getText().toString(); 
 		final EditText Date = (EditText) findViewById(R.id.da);
 		String date = Date.getText().toString();                          
-		String newDate = date.charAt(0) + date.charAt(1) + "-" + date.charAt(3) + date.charAt(4);
-		String url = "http://data.tmsapi.com/v1/movies/showings?startDate=" + newDate + "&zip=" + zipcode + "&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
-		//String url =  "http://data.tmsapi.com/v1/movies/showings?startDate=2014-01-20&zip=" + zipcode + "&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
+		//String newDate = date.charAt(0) + date.charAt(1) + "-" + date.charAt(3) + date.charAt(4);
+		//String url = "http://data.tmsapi.com/v1/movies/showings?startDate=2014-" + newDate + "&zip=" + zipcode + "&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
+		String url =  "http://data.tmsapi.com/v1/movies/showings?startDate=2014-01-22&zip=43016&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
 		try
 		{
 			URL obj = new URL(url);
@@ -60,7 +74,7 @@ public class MainActivity extends Activity {
 			if (status != HttpURLConnection.HTTP_OK) {
 				if (status == HttpURLConnection.HTTP_MOVED_TEMP
 					|| status == HttpURLConnection.HTTP_MOVED_PERM
-						|| status == HttpURLConnection.HTTP_SEE_OTHER)
+						|| status == HttpURLConnection.HTTP_SEE_OTHER) 
 				redirect = true;
 			}
 			BufferedReader in = new BufferedReader(
@@ -72,7 +86,7 @@ public class MainActivity extends Activity {
 			while ((inputLine = in.readLine()) != null) {
 				html.append(inputLine);
 			}
-			ArrayList<Movie> movies = new ArrayList<Movie>();
+			/*ArrayList<Movie> movies = new ArrayList<Movie>();
 			JSONObject object = new JSONObject(inputLine);
 			ArrayList<String> titles = new ArrayList<String>();
 			JSONArray array = object.getJSONArray("title");
@@ -126,7 +140,7 @@ public class MainActivity extends Activity {
 			Intent intent = new Intent(this, DisplayMessageActivity.class);
 			String finalValue = newResults.toString();
 			intent.putExtra(EXTRA_MESSAGE, finalValue);
-		    startActivity(intent);
+		    startActivity(intent);*/
 		}
 		catch (Exception e) {
 			e.printStackTrace();
