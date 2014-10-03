@@ -25,16 +25,18 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		System.out.println("Blah");
 		// Get the button and set listener
-		findViewById(R.id.ButtonSendFeedback).setOnClickListener(Feedback);
+		//findViewById(R.id.ButtonSendFeedback).setOnClickListener(Feedback);
 	}
 	
-	final OnClickListener Feedback = new OnClickListener(){
-		public void onClick(final View v) {
+	/*final OnClickListener Feedback = new OnClickListener(){
+		public void onClick(final View v) 
+		{
         	//Inform the user the button has been clicked
         	sendFeedback(v);               
     	}
-	};
+	};*/
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,7 +45,7 @@ public class MainActivity extends Activity {
 		return true;
 	}
 	
-	public void sendFeedback(View ButtonSendFeedback)
+	public void sendFeedback(View View)
 	{
 		
 		System.out.println("Blah");
@@ -60,7 +62,7 @@ public class MainActivity extends Activity {
 		String date = Date.getText().toString();                          
 		//String newDate = date.charAt(0) + date.charAt(1) + "-" + date.charAt(3) + date.charAt(4);
 		//String url = "http://data.tmsapi.com/v1/movies/showings?startDate=2014-" + newDate + "&zip=" + zipcode + "&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
-		String url =  "http://data.tmsapi.com/v1/movies/showings?startDate=2014-01-22&zip=43016&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
+		String url =  "http://data.tmsapi.com/v1/movies/showings?startDate=2014-10-10&zip=43016&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
 		try
 		{
 			URL obj = new URL(url);
@@ -86,7 +88,7 @@ public class MainActivity extends Activity {
 			while ((inputLine = in.readLine()) != null) {
 				html.append(inputLine);
 			}
-			/*ArrayList<Movie> movies = new ArrayList<Movie>();
+			ArrayList<Movie> movies = new ArrayList<Movie>();
 			JSONObject object = new JSONObject(inputLine);
 			ArrayList<String> titles = new ArrayList<String>();
 			JSONArray array = object.getJSONArray("title");
@@ -139,8 +141,9 @@ public class MainActivity extends Activity {
 			}
 			Intent intent = new Intent(this, DisplayMessageActivity.class);
 			String finalValue = newResults.toString();
+			System.out.println(finalValue);
 			intent.putExtra(EXTRA_MESSAGE, finalValue);
-		    startActivity(intent);*/
+		    startActivity(intent);
 		}
 		catch (Exception e) {
 			e.printStackTrace();
