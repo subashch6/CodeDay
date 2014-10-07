@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
 		String url = "http://data.tmsapi.com/v1/movies/showings?startDate=2014-10-10&zip=43016&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
 		try
 		{
-			URL obj = new URL("http://www.oracle.com/");
+			URL obj = new URL(url);
 			/*HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
 			conn.setReadTimeout(5000);
 			conn.addRequestProperty("Accept-Language", "en-US,en;q=0.8");
@@ -103,7 +103,7 @@ public class MainActivity extends Activity {
 		}
 		//String finalValue = "Hello";
 		Intent intent = new Intent(this, DisplayMessageActivity.class);
-		intent.putExtra(EXTRA_MESSAGE, finalValue);
+		intent.putExtra(EXTRA_MESSAGE, url);
 	    startActivity(intent);
 		}
 			/*ArrayList<Movie> movies = new ArrayList<Movie>();
