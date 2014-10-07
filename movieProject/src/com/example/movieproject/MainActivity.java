@@ -62,11 +62,11 @@ public class MainActivity extends Activity {
 		String date = Date.getText().toString();       */                   
 		//String newDate = date.charAt(0) + date.charAt(1) + "-" + date.charAt(3) + date.charAt(4);
 		//String url = "http://data.tmsapi.com/v1/movies/showings?startDate=2014-" + newDate + "&zip=" + zipcode + "&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
-		//String url =  "http://data.tmsapi.com/v1/movies/showings?startDate=2014-10-10&zip=43016&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
+		String url =  "http://data.tmsapi.com/v1/movies/showings?startDate=2014-10-10&zip=43016&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
 		try
 		{
-			/*URL obj = new URL(url);
-			HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
+			URL obj = new URL(url);
+			/*HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
 			conn.setReadTimeout(5000);
 			conn.addRequestProperty("Accept-Language", "en-US,en;q=0.8");
 			boolean redirect = false;
@@ -87,7 +87,10 @@ public class MainActivity extends Activity {
 
 			while ((inputLine = in.readLine()) != null) {
 				html.append(inputLine);
-			}
+			}*/
+			BufferedReader in = new BufferedReader(
+                    new InputStreamReader(obj.openStream()));
+			String inputLine;
 		String finalValue;
 		if((inputLine = in.readLine()) != null)
 		{
@@ -97,8 +100,8 @@ public class MainActivity extends Activity {
 		else
 		{
 		finalValue = "Hello";
-		}*/
-		String finalValue = "Hello";
+		}
+		//String finalValue = "Hello";
 		Intent intent = new Intent(this, DisplayMessageActivity.class);
 		intent.putExtra(EXTRA_MESSAGE, finalValue);
 	    startActivity(intent);
