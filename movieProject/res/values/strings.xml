@@ -16,5 +16,6 @@
     <string name="fulldates">please enter your date here (YYYY-DD-MM)</string>
     <string name="fuldate">please enter your date here (YYYY-MM-DD)</string>
     <string name="da">mm/dd</string>
-
+    <string name="DisplayMessageActivity">DisplayMessageActivity</string>
+	
 </resources>

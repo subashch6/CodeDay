@@ -27,7 +27,7 @@
         android:imeOptions="actionSend"
         android:inputType="text" />
 
-    <Button
+<Button
         android:id="@+id/ButtonSendFeedback"
         style="@style/AppBaseTheme"
         android:layout_width="fill_parent"
@@ -37,7 +37,6 @@
         android:layout_marginBottom="37dp"
         android:onClick="sendFeedback"
         android:text="@string/submit" />
-
     <EditText
         android:id="@+id/zipcode"
         android:layout_width="wrap_content"
@@ -72,6 +71,7 @@
         android:ems="10"
         android:hint="@string/da" >
 
+        
         <requestFocus />
     </EditText>
 

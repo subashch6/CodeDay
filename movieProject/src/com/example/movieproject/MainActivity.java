@@ -25,7 +25,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		System.out.println("Blah");
+		//System.out.println("Blah");
 		// Get the button and set listener
 		//findViewById(R.id.ButtonSendFeedback).setOnClickListener(Feedback);
 	}
@@ -48,9 +48,9 @@ public class MainActivity extends Activity {
 	public void sendFeedback(View View)
 	{
 		
-		System.out.println("Blah");
+		//System.out.println("Blah");
 		//ButtonSendFeedback.performClick();
-		final EditText nameField = (EditText) findViewById(R.id.genre);  
+		/*final EditText nameField = (EditText) findViewById(R.id.genre);  
 		String genre = nameField.getText().toString();  
 		
 		final EditText emailField = (EditText) findViewById(R.id.rating);  
@@ -59,7 +59,7 @@ public class MainActivity extends Activity {
 		final EditText feedbackField = (EditText) findViewById(R.id.zipcode);  
 		String zipcode = feedbackField.getText().toString(); 
 		final EditText Date = (EditText) findViewById(R.id.da);
-		String date = Date.getText().toString();                          
+		String date = Date.getText().toString();       */                   
 		//String newDate = date.charAt(0) + date.charAt(1) + "-" + date.charAt(3) + date.charAt(4);
 		//String url = "http://data.tmsapi.com/v1/movies/showings?startDate=2014-" + newDate + "&zip=" + zipcode + "&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
 		String url =  "http://data.tmsapi.com/v1/movies/showings?startDate=2014-10-10&zip=43016&api_key=5xmxecwv3kw4z4ndb5d5kbg6";
@@ -88,7 +88,21 @@ public class MainActivity extends Activity {
 			while ((inputLine = in.readLine()) != null) {
 				html.append(inputLine);
 			}
-			ArrayList<Movie> movies = new ArrayList<Movie>();
+		String finalValue;
+		if((inputLine = in.readLine()) != null)
+		{
+		 finalValue = inputLine;//object.toString();
+		
+		}
+		else
+		{
+		finalValue = "Hello";
+		}
+		Intent intent = new Intent(this, DisplayMessageActivity.class);
+		intent.putExtra(EXTRA_MESSAGE, finalValue);
+	    startActivity(intent);
+		}
+			/*ArrayList<Movie> movies = new ArrayList<Movie>();
 			JSONObject object = new JSONObject(inputLine);
 			ArrayList<String> titles = new ArrayList<String>();
 			JSONArray array = object.getJSONArray("title");
@@ -144,12 +158,13 @@ public class MainActivity extends Activity {
 			System.out.println(finalValue);
 			intent.putExtra(EXTRA_MESSAGE, finalValue);
 		    startActivity(intent);
-		}
+		}*/
 		catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-	}
+		
+	
 	
 /*	public void sendFeedback(View button)
 	{  
@@ -162,4 +177,5 @@ public class MainActivity extends Activity {
 		final EditText feedbackField = (EditText) findViewById(R.id.search);  
 		String zipcode = feedbackField.getText().toString();  
 	} */ 
+}
 }
